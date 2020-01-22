@@ -1,1 +1,1 @@
-# demo-angular
+# demos-angular
