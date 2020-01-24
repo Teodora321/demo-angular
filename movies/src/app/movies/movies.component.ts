@@ -10,16 +10,19 @@ import Movie from '../models/Movie';
 export class MoviesComponent implements OnInit {
 
   popularMovies: Array<Movie>;
-  singleMovie: Movie;
+  inTheaterMovies: Array<Movie>;
+  // singleMovie: Movie;
 
   constructor(private movieService: MovieService) { }
 
   ngOnInit() {
-    this.movieService.getAllMovies().subscribe(data => {
-      this.popularMovies = data['results'];
-      console.log('p' + this.popularMovies) 
-      this.singleMovie = this.popularMovies[0];
-      console.log('single movie' + this.singleMovie)
+    this.movieService.getPopularMovies().subscribe(data => {
+      this.popularMovies = data['results'].slice(0,6);
+      // this.singleMovie = this.popularMovies[0];
+    })
+    this.movieService.getTheaterMovies().subscribe(data => {
+      this.inTheaterMovies = data['results'].slice(6,12);
+      console.log('theatre' + this.inTheaterMovies)
     })
   }
 

@@ -1,8 +1,15 @@
+<h1>Popular Movies</h1>
+<br/>
 <div class="row">
-  <div class="col-lg-2">
-    <app-movie></app-movie>
+  <div class="col-lg-2" *ngFor="let movie of popularMovies">
+    <app-movie [movie]='movie'></app-movie>
   </div>
-  <div class="col-lg-2"></div>
-  <div class="col-lg-2"></div>
-
+</div>
+<br/>
+<h1>In Theater Movies</h1>
+<br/>
+<div class="row">
+  <div class="col-lg-2" *ngFor="let movie of inTheaterMovies">
+    <app-movie [movie]='movie'></app-movie>
+  </div>
 </div>

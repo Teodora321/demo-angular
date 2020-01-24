@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
+import Movie from '../models/Movie';
 
 @Component({
   selector: 'app-movie',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieComponent implements OnInit {
 
+  @Input('movie')
+  movie: Movie;
+  imagePath:string;
+
   constructor() { }
 
   ngOnInit() {
+    this.imagePath = 'https://image.tmdb.org/t/p/original' + this.movie.poster_path;
   }
 
 }
